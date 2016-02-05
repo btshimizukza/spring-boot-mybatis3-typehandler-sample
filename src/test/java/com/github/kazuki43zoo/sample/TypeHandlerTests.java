@@ -58,6 +58,7 @@ public class TypeHandlerTests {
 
         Todo loadedTodo = todoRepository.findOne(todo.getTodoId());
 
+        Assert.assertThat(loadedTodo.getTodoId(), Is.is(todo.getTodoId()));
         Assert.assertThat(loadedTodo.getTodoTitle(), Is.is("title"));
         Assert.assertThat(StreamUtils.copyToString(loadedTodo.getAttachmentFile(), StandardCharsets.UTF_8), Is.is("image!"));
 
